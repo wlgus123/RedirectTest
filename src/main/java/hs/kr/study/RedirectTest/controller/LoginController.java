@@ -1,19 +1,19 @@
 package hs.kr.study.RedirectTest.controller;
 
+import hs.kr.study.RedirectTest.dto.LoginDTO;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @Controller
 public class LoginController {
     @PostMapping("/signup")
-    public String signup(@RequestParam("name") String name,
-                        @RequestParam("email") String email,
-                        @RequestParam("addr") String addr) {
-        System.out.println("name: " + name);
-        System.out.println("email: " + email);
-        System.out.println("addr: " + addr);
+    public String signup(LoginDTO dto) {
+        System.out.println("name: " + dto.getName());
+        System.out.println("email: " + dto.getEmail());
+        System.out.println("addr: " + dto.getAddr());
 
         return "redirect:/login";
     }
